@@ -1,5 +1,8 @@
 <template>
-  <div class="w-screen h-full min-h-screen bg-gray-200 flex flex-col items-center justify-center gap-4">
+  <div
+    class="w-screen min-h-screen bg-gray-200 flex flex-col items-center justify-center gap-4"
+    :style="{ height: `${screenHeight}px` }"
+  >
     <h2 class="text-2xl font-bold">Pal Engineer Image Generator</h2>
     <div class="border-2 border-white rounded p-4 w-full max-w-xs bg-gray-50 flex flex-col gap-4 shadow-xl">
       <div class="flex flex-col gap-2">
@@ -65,7 +68,10 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
+import { useWindowSize } from '@vueuse/core';
 import baseImage from './pal_engineer_base.png';
+
+const { height: screenHeight } = useWindowSize();
 
 const languages = ref([
   {
