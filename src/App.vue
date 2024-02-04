@@ -29,25 +29,31 @@
           @click="showAbout = true">about</span>
         <a
           class="underline cursor-pointer"
-          href="#">source</a>
+          href="https://github.com/jd615645/pal_coding_image_gen"
+          target="_blank">source</a>
       </div>
     </div>
 
-    <div v-if="showAbout" class="modal">
-      <div class="modal-content">
+    <div v-if="showAbout" class="fixed inset-0 bg-black bg-opacity-40 overflow-auto z-10">
+      <div class="bg-white p-6 m-auto border border-gray-300 rounded w-4/5 my-4">
         <p
-          class="close"
+          class="text-right text-gray-500 text-2xl font-bold cursor-pointer"
           @click="showAbout = false"
         >&times;</p>
         <div class="flex flex-col gap-4">
-          <p>這款小工具是出於個人興趣而製作的，它能夠幫助您創建一個迷人又可愛的帕魯（Pal）工程師頭像。這個頭像的靈感來源於我在小紅書上看到的一則貼文。原始的圖片似乎也是轉載的，且未提及原作者。如果您知道作者的身份，請隨時通過郵件 <span class="email">jd615465[at]gmail.com</span> 與我聯絡。我會非常樂意在作品中標明作者的名字。如果原作者不希望其作品以這種方式被使用，我將立即撤下相關內容。</p>
+          <p>這款小工具是出於個人興趣而製作的，它能夠幫助您創建一個迷人又可愛的帕魯（Pal）工程師頭像。這個頭像的靈感來源於我在小紅書上看到的一則貼文。</p>
+          <p>原始的圖片似乎也是轉載的，且未提及原作者。如果您知道作者的身份，請隨時通過郵件 <span class="email">jd615465[at]gmail.com</span> 與我聯絡。</p>
+          <p>我會非常樂意在作品中標明作者的名字。如果原作者不希望其作品以這種方式被使用，我將立即撤下相關內容。</p>
           <p>此外，歡迎各位的提交 PR 來更新更多的編程語言選項。您的參與將使這個小工具更加豐富 =D</p>
 
           <hr>
 
           <p>
-            This tool is a personal passion project, allowing you to create a charming and adorable Pal Engineer avatar. The original image was inspired by a post I saw on Xiaohongshu. The picture seems to be a repost as well, without any attribution to the original artist. If you happen to know the identity of the artist, please feel free to contact me at <span class="email">jd615465[at]gmail.com</span>. I would be more than happy to credit the artist in the work. If the original artist does not wish for their work to be used in this way, I will immediately take down the content.
+            This tool is a personal passion project, allowing you to create a charming and adorable Pal Engineer avatar. The original image was inspired by a post I saw on Xiaohongshu.
           </p>
+          <p>The picture seems to be a repost as well, without any attribution to the original artist.</p>
+          <p>If you happen to know the identity of the artist, please feel free to contact me at <span class="email">jd615465[at]gmail.com</span>.</p>
+          <p>I would be more than happy to credit the artist in the work. If the original artist does not wish for their work to be used in this way, I will immediately take down the content.</p>
           <p>
             Additionally, we warmly welcome contributors to submit pull requests (PRs) to add more programming language options. Your participation will make this fun project even more diverse and colorful!
           </p>
@@ -168,38 +174,3 @@ const saveImage = () => {
 
 drawImage();
 </script>
-
-<style>
-.modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.close {
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-  text-align: right;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-</style>
