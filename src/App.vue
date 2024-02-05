@@ -45,21 +45,26 @@
         >&times;</p>
         <div class="flex flex-col gap-4">
           <p>這款小工具是出於個人興趣而製作的，它能夠幫助您創建一個迷人又可愛的帕魯（Pal）工程師頭像。這個頭像的靈感來源於我在小紅書上看到的一則貼文。</p>
-          <p>原始的圖片似乎也是轉載的，且未提及原作者。如果您知道作者的身份，請隨時通過郵件 <span class="email">jd615465[at]gmail.com</span> 與我聯絡。</p>
-          <p>我會非常樂意在作品中標明作者的名字。如果原作者不希望其作品以這種方式被使用，我將立即撤下相關內容。</p>
-          <p>此外，歡迎各位的提交 PR 來更新更多的編程語言選項。您的參與將使這個小工具更加豐富 =D</p>
+          <p>原始來自於小紅書的繪師 
+            <a
+              class="font-bold underline text-blue-500"
+              href="https://www.xiaohongshu.com/explore/65bb4ba90000000008023daa?app_platform=ios&app_version=8.24.2&author_share=1&share_from_user_hidden=true&type=normal&xhsshare=CopyLink&appuid=5dcc19f6000000000100862c&apptime=1707072363"
+              target="_blank"
+            >WEN</a>
+            。歡迎大家關注
+          </p>
+          <p>此外，歡迎各位的提交 PR 來更新更多的編程語言選項。</p>
 
           <hr>
 
+          <p>This tool is a personal passion project, designed to help you create a charming and adorable Pal Engineer avatar. The inspiration for this avatar came from a post I saw on Xiaohongshu.</p>
           <p>
-            This tool is a personal passion project, allowing you to create a charming and adorable Pal Engineer avatar. The original image was inspired by a post I saw on Xiaohongshu.
+            The original artwork is by the Xiaohongshu artist 
+            <a href="https://www.xiaohongshu.com/explore/65bb4ba90000000008023daa?app_platform=ios&app_version=8.24.2&author_share=1&share_from_user_hidden=true&type=normal&xhsshare=CopyLink&appuid=5dcc19f6000000000100862c&apptime=1707072363" target="_blank">WEN</a>.
+            Feel free to follow and support them.
           </p>
-          <p>The picture seems to be a repost as well, without any attribution to the original artist.</p>
-          <p>If you happen to know the identity of the artist, please feel free to contact me at <span class="email">jd615465[at]gmail.com</span>.</p>
-          <p>I would be more than happy to credit the artist in the work. If the original artist does not wish for their work to be used in this way, I will immediately take down the content.</p>
-          <p>
-            Additionally, we warmly welcome contributors to submit pull requests (PRs) to add more programming language options. Your participation will make this fun project even more diverse and colorful!
-          </p>
+          <p>In addition, we warmly welcome everyone to submit pull requests (PRs) to update more programming language options.</p>
+
         </div>
       </div>
     </div>
