@@ -101,70 +101,12 @@
 import { ref, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import baseImage from './pal_engineer_base.png'
+import { languages } from './languages'
 
 const { height: screenHeight } = useWindowSize()
 
-const languages = ref([
-  {
-    name: 'JavaScript',
-    code: 'const func = () => {}'
-  },
-  {
-    name: 'TypeScript',
-    code: 'const func = (): void => {}'
-  },
-  {
-    name: 'Python',
-    code: 'def func(): pass'
-  },
-  {
-    name: 'Java',
-    code: 'public void func() {}'
-  },
-  {
-    name: 'PHP',
-    code: 'function func() {}'
-  },
-  {
-    name: 'Ruby',
-    code: 'def func; end'
-  },
-  {
-    name: 'Go',
-    code: 'func func() {}'
-  },
-  {
-    name: 'C',
-    code: 'void func() {}'
-  },
-  {
-    name: 'C++',
-    code: 'void func() {}'
-  },
-  {
-    name: 'C#',
-    code: 'void Func() {}'
-  },
-  {
-    name: 'Swift',
-    code: 'func func() {}'
-  },
-  {
-    name: 'Kotlin',
-    code: 'fun func() {}'
-  },
-  {
-    name: 'Rust',
-    code: 'fn func() {}'
-  },
-  {
-    name: 'MATLAB',
-    code: 'function func()'
-  }
-])
-
 const showAbout = ref(false)
-const selectedLanguage = ref(languages.value[0])
+const selectedLanguage = ref(languages[0])
 
 const canvas = ref<HTMLCanvasElement | null>(null)
 const ctx = ref<CanvasRenderingContext2D | null>(null)
