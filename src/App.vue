@@ -122,10 +122,6 @@ const languages = ref([
     code: 'public void func() {}'
   },
   {
-    name: 'C#',
-    code: 'void Func() {}'
-  },
-  {
     name: 'PHP',
     code: 'function func() {}'
   },
@@ -138,8 +134,16 @@ const languages = ref([
     code: 'func func() {}'
   },
   {
+    name: 'C',
+    code: 'void func() {}'
+  },
+  {
     name: 'C++',
     code: 'void func() {}'
+  },
+  {
+    name: 'C#',
+    code: 'void Func() {}'
   },
   {
     name: 'Swift',
@@ -152,6 +156,10 @@ const languages = ref([
   {
     name: 'Rust',
     code: 'fn func() {}'
+  },
+  {
+    name: 'MATLAB',
+    code: 'function func()'
   }
 ])
 
