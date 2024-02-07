@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-screen min-h-screen bg-gray-200 flex flex-col items-center justify-center gap-4"
+    class="w-screen bg-gray-200 flex flex-col items-center justify-center gap-4"
     :style="{ height: `${screenHeight}px` }"
   >
     <h2 class="text-2xl font-bold">
