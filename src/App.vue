@@ -24,6 +24,31 @@
         </select>
       </div>
 
+      <label class="text-xl font-bold">Image shape</label>
+      <div class="flex gap-2">
+        <button
+          :class="shape === 'circle' ? 'bg-gray-200' : 'bg-gray-100'"
+          class="w-1/3 p-2 border-2 border-gray-300 rounded hover:bg-gray-200"
+          @click="setShape('circle')"
+        >
+          Circle
+        </button>
+        <button
+          :class="shape === 'original' ? 'bg-gray-200' : 'bg-gray-100'"
+          class="w-1/3 p-2 border-2 border-gray-300 rounded hover:bg-gray-200"
+          @click="setShape('original')"
+        >
+          Original
+        </button>
+        <button
+          :class="shape === 'square' ? 'bg-gray-200' : 'bg-gray-100'"
+          class="w-1/3 p-2 border-2 border-gray-300 rounded hover:bg-gray-200"
+          @click="setShape('square')"
+        >
+          Square
+        </button>
+      </div>
+
       <canvas
         ref="canvas"
         class="w-full block mx-auto"
@@ -110,6 +135,7 @@ const selectedLanguage = ref(languages[0])
 
 const canvas = ref<HTMLCanvasElement | null>(null)
 const ctx = ref<CanvasRenderingContext2D | null>(null)
+const shape = ref<'original' | 'circle' | 'square'>('original')
 
 const drawImage = async () => {
   const image = new Image()
@@ -122,27 +148,56 @@ const drawImage = async () => {
     ctx.value = context
     canvas.value.width = image.width
     canvas.value.height = image.height
+
+    // 清除並開始新的繪圖路徑
     ctx.value.clearRect(0, 0, canvas.value.width, canvas.value.height)
+    ctx.value.beginPath()
+
+    // 設置裁剪路徑
+    if (shape.value === 'circle') {
+      const radius = Math.min(canvas.value.width, canvas.value.height) / 2
+      ctx.value.arc(canvas.value.width / 2, canvas.value.height / 2, radius, 0, Math.PI * 2, true)
+      canvas.value.style.borderRadius = '50%'
+    } else if (shape.value === 'square') {
+      const size = Math.min(canvas.value.width, canvas.value.height)
+      ctx.value.rect(canvas.value.width / 2 - size / 2, canvas.value.height / 2 - size / 2, size, size)
+      canvas.value.style.borderRadius = '0'
+    } else {
+      canvas.value.style.borderRadius = 'initial'
+    }
+
+    // 應用裁剪路徑
+    if (shape.value !== 'original') {
+      ctx.value.clip()
+    }
+
+    // 繪製圖像
     ctx.value.drawImage(image, 0, 0)
+
     ctx.value.globalAlpha = 0.8
-    ctx.value.font = 'bold 32px Hack, monospace'
+    ctx.value.font = 'bold 28px Hack, monospace'
     ctx.value.fillStyle = '#f490aa'
 
     // 在旋轉和繪製文字前保存當前狀態
     ctx.value.save()
 
-    // 移動到旋轉的中心點
-    ctx.value.translate(135, 50)
+    ctx.value.translate(230, 70)
 
     // 旋轉
     ctx.value.rotate(0.1)
 
-    // 繪製文字（相對於旋轉後的新位置）
-    ctx.value.fillText(selectedLanguage.value.code, 0, 0)
+    for (let i = 0; i < selectedLanguage.value.code.length; i++) {
+      ctx.value.fillText(selectedLanguage.value.code[i], 0, i * 30)
+    }
 
     // 恢復到旋轉前的狀態
     ctx.value.restore()
   }
+}
+
+const setShape = (newShape: 'original' | 'circle' | 'square') => {
+  shape.value = newShape
+  drawImage().catch(error => console.error(error))
 }
 
 const saveImage = () => {
@@ -150,7 +205,7 @@ const saveImage = () => {
   const image = canvas.value.toDataURL('image/png').replace('image/png', 'image/octet-stream')
   const link = document.createElement('a')
   const lowerCaseStr = (selectedLanguage.value.name).toLocaleLowerCase()
-  link.download = `pal_${lowerCaseStr}.png`
+  link.download = `pal_${lowerCaseStr}_${shape.value}.png`
   link.href = image
   link.click()
 }
